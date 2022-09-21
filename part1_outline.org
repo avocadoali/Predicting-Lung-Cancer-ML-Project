@@ -1,0 +1,38 @@
+#+TITLE: Part1 Outline
+
+
+* TODOS
+** Problem Formulation
+*** TODO Formulate the problem
+
+*** TODO Data points must be explicitly explained
+*** TODO Dataset must be multidimensional
+
+*** TODO Explain where data is from
+*** TODO Explain the type of data
+
+*** TODO Explain the typ of ml (un or supervised)
+-> explain labels if supervised
+
+** Methods
+
+*** TODO state number of datapoints and the processing
+
+*** TODO explain feature selection/engineering(processing)
+
+*** TODO state the model (hypothesis space)
+*** TODO explain choice of model (see ml book)
+
+*** TODO state loss function
+*** TODO explain choice of loss function? (see ml book)
+
+*** TODO explain process of model validation
+*** TODO explain the split of data in training/validation
+*** TODO state the size of the sets
+*** TODO explain these choices
+
+
+** Miscellaneous
+*** TODO Code
+*** TODO Quality of writing
+*** TODO Sources no plagiarism

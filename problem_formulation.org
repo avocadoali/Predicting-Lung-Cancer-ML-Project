@@ -1,0 +1,28 @@
+#+TITLE: Detecting Lung Cancer with Machine Learning
+
+
+
+
+
+* Problem Formulation
+** Problem
+This paper will try to predict, if a patient with specific symptoms has lungcancer or not.
+
+
+
+** Datasource
+** Datapoints
+
+** Features
+any missing values?
+** Labels
+lungcancer yes/no
+
+
+
+
+
+
+
+* Problems
+More lungcancer patients than people without lungcancer - Is that a problem?
