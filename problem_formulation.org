@@ -28,19 +28,41 @@ As one may have already realized, the dataset is not all too big, as there are j
 
 
 
+
+* Methods
+** Datapoints
+Where, licsense, How much,
+
+** Feature selection
+
+
+** ML model
+*** TODO Explain why this model
+*** TODO Explain why this loss function
+- hypothesis spaces?
+- linear predictor
+
+** Loss function
+*** TODO Loss function
+*** TODO Explain why this loss function
+
+** Model validation
+*** TODO Splitting data
+*** TODO Explain why this splitting method
+
+
+* Appendics
+** Code with preprocessed data
+** Trained and evaluated models
+
 * TODOs
 
 ** DONE Which method to use?
 
 ** DONE Logistic regression
 ** DONE Which loss function
-** TODO Splitting data
-** TODO Loss function
-** TODO What Results do I need??
 
-** TODO Explain why this splitting method
-** TODO Explain why this model
-** TODO Explain why this loss function
+
 
 
 
@@ -76,6 +98,7 @@ label, I chose it as my first ML method. LR uses the hypothesis space of linear 
 h(x) = wT (x) (Jung, 2022, p. 88), where w is some parameter vector w ∈ Rn.
 
 
+
 The first model of choice for classifying stars was logistic regression. It uses a linear
 hypothesis space and a logistic loss function.
 As can be seen in figure 2, we can quite well separate the different classes with a straight
@@ -88,12 +111,14 @@ the used validation method, k-fold. It’s also less sensitive against outliers 
 error loss.
 
 
+
 We start off with a simple linear regression model. This model was chosen because it is generally a
 good starting point for describing continuous quantities such as prices and there appears to be a
 linear relationship between the label and the feature based on visualizations, as can be seen above.
 This hypothesis space takes the form:
 𝑦̂ = 𝛽0 + 𝛽1𝑋𝐶
 Where 𝑦̂ is the predicted pharmacy purchasing price (wholesale price), β0 is the y-intercept, XPRP is a
+
 
 
 Before discussing whether this is the appropriate ML method to use in this example, it is
