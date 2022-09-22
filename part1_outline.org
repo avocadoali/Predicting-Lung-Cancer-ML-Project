@@ -16,9 +16,9 @@
 
 ** Methods
 
-*** TODO state number of datapoints and the processing
+*** DONE state number of datapoints and the processing
 
-*** TODO explain feature selection/engineering(processing)
+*** DONE explain feature selection/engineering(processing)
 
 *** TODO state the model (hypothesis space)
 *** TODO explain choice of model (see ml book)

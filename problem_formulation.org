@@ -29,11 +29,20 @@ As one may have already realized, the dataset is not all too big, as there are j
 
 
 * TODOs
+
 ** DONE Which method to use?
+
+** DONE Logistic regression
+** DONE Which loss function
+** TODO Splitting data
+** TODO Loss function
+** TODO What Results do I need??
+
+** TODO Explain why this splitting method
 ** TODO Explain why this model
-** TODO Which loss function
-** TODO Explain why this function
-** TODO How to split data in training/validation
+** TODO Explain why this loss function
+
+
 
 
 
