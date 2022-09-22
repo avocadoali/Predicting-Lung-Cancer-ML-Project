@@ -3,15 +3,15 @@
 
 * TODOS
 ** Problem Formulation
-*** TODO Formulate the problem
+*** DONE Formulate the problem
 
-*** TODO Data points must be explicitly explained
-*** TODO Dataset must be multidimensional
+*** DONE Data points must be explicitly explained
+*** DONE Dataset must be multidimensional
 
-*** TODO Explain where data is from
-*** TODO Explain the type of data
+*** DONE Explain where data is from
+*** DONE Explain the type of data
 
-*** TODO Explain the typ of ml (un or supervised)
+*** DONE Explain the typ of ml (un or supervised)
 -> explain labels if supervised
 
 ** Methods
@@ -30,6 +30,17 @@
 *** TODO explain the split of data in training/validation
 *** TODO state the size of the sets
 *** TODO explain these choices
+
+
+* TODOs
+Which method to use?
+Explain why this model
+Which loss function
+Explain why this function
+How to split data in training/validation
+
+
+
 
 
 ** Miscellaneous
