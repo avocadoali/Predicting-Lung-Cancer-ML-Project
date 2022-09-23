@@ -1,5 +1,13 @@
 #+TITLE: Part1 Outline
 
+
+
+* TODO Sources
+* TODO
+
+
+
+
 * Methods
 ** Datapoints
 Where, licsense, How much,
@@ -13,29 +21,31 @@ Where, licsense, How much,
       -> big diff-> mean it
 df.hist()
 
-*** TODO Correlation heatmap
+*** DONE Correlation heatmap
 .heatmap(X.corr(), annot= True, mask = mask, vmin= -1, vmax= 1)
 
-*** TODO VIF analysis
+*** DONE VIF analysis
 
-*** TODO Text for unbalcing
-*** TODO Text for heatmap
-*** TODO Text for vif analysis
+*** DONE delete duplicates
+
+*** DONE Text for unbalcing
+*** DONE Text for heatmap
+*** DONE Text for vif analysis
 
 
 ** ML model
-*** TODO Explain why this model
-*** TODO Explain why this loss function
+*** DONE Explain why this model
+*** DONE Explain why this loss function
 - hypothesis spaces?
 - linear predictor
 
 ** Loss function
-*** TODO Loss function
-*** TODO Explain why this loss function
+*** DONE Loss function
+*** DONE Explain why this loss function
 
 ** Model validation
-*** TODO Splitting data
-*** TODO Explain why this splitting method
+*** DONE Splitting data
+*** DONE Explain why this splitting method
 
 
 
@@ -58,16 +68,16 @@ df.hist()
 
 *** DONE explain feature selection/engineering(processing)
 
-*** TODO state the model (hypothesis space)
-*** TODO explain choice of model (see ml book)
+*** DONE state the model (hypothesis space)
+*** DONE explain choice of model (see ml book)
 
-*** TODO state loss function
-*** TODO explain choice of loss function? (see ml book)
+*** DONE state loss function
+*** DONE explain choice of loss function? (see ml book)
 
-*** TODO explain process of model validation
-*** TODO explain the split of data in training/validation
-*** TODO state the size of the sets
-*** TODO explain these choices
+*** DONE explain process of model validation
+*** DONE explain the split of data in training/validation
+*** DONE state the size of the sets
+*** DONE explain these choices
 
 
 * TODOs
@@ -85,3 +95,150 @@ How to split data in training/validation
 *** TODO Code
 *** TODO Quality of writing
 *** TODO Sources no plagiarism
+* TODOs
+
+*** DONE Explain why this model
+*** DONE Explain why this loss function - linear predictor
+*** DONE Loss function
+*** DONE Explain why this loss function
+
+
+*** DONE have to take less features?
+
+*** DONE Splitting data
+*** DONE Explain why this splitting method
+
+
+** DONE Which method to use?
+
+** DONE Logistic regression
+** DONE Which loss function
+
+
+
+** Methods
+*** Training, Validation and Test Set
+
+only K-fold
+
+
+very common typical splitting 60%/20%/20%
+
+first 20% random
+
+K-fold CV good for smaller setspace
+->evens out unlucky spit
+
+
+
+
+
+
+*** Logistic Regression
+
+
+For the first ML method I am going to use logistic regression (LR), which is a binary classification
+method. It models a binary label using logistic function. The binary labels have two different label
+values, 0 and 1, and the two label values represent the two different categories that a data point
+can be categorized into. Because LR is a binary classification method and my problem has a binary
+label, I chose it as my first ML method. LR uses the hypothesis space of linear hypothesis maps
+h(x) = wT (x) (Jung, 2022, p. 88), where w is some parameter vector w ∈ Rn.
+
+
+
+The first model of choice for classifying stars was logistic regression. It uses a linear
+hypothesis space and a logistic loss function.
+As can be seen in figure 2, we can quite well separate the different classes with a straight
+line, so linear map is expected get quite good results. Linear methods are also simpler to
+code than eg. polynomials, so it was a good choice for my first machine learning project.
+Linear classification works by drawing a line (or in higher dimensions, a plane) between
+two classes.
+Logistic loss is a continuous function, so it’s very quick to optimize. This is important for
+the used validation method, k-fold. It’s also less sensitive against outliers than squared
+error loss.
+
+
+
+We start off with a simple linear regression model. This model was chosen because it is generally a
+good starting point for describing continuous quantities such as prices and there appears to be a
+linear relationship between the label and the feature based on visualizations, as can be seen above.
+This hypothesis space takes the form:
+𝑦̂ = 𝛽0 + 𝛽1𝑋𝐶
+Where 𝑦̂ is the predicted pharmacy purchasing price (wholesale price), β0 is the y-intercept, XPRP is a
+
+
+
+Before discussing whether this is the appropriate ML method to use in this example, it is
+crucial to understand how it works to understand why it could be useful.
+
+When some data is classified (good/bad, healthy/sick,…), the reason to use machine
+learning is to determine the ideal position to place the delimiter between the categories (in other
+words where do we put the | in “good | bad”). In a one dimensional dataset (line), this would equate
+to putting a point on the line to separate the categories. In a two dimensional dataset (plane), we
+would use an affine line. In a three dimensional dataset (space), we would use a plane. From there
+on we use “hyperplanes”, which we can not represent graphically.
+
+For the SVC model [6] we will use the hinge loss. Not only is this function importable from
+sklearn [7] but it also makes sense to use this loss function. Indeed, we visualising the SVC in a two
+dimensional space, it is a line that separates both categories of the data. The hinge loss is then
+measured by applying a margin to both sides of this line. If an outlier falls in this margin, depending
+on it’s proximity to the hypothesis, it will result in a loss proportional to this distance, as the loss
+
+
+
+***
+Our goal is to classify wether a patient has lungcancer or not, which is leads us to a binary classification.
+Logistic regression is sound method to classify data into two classes.
+Logistic regression works by setting a demlimiter between the two to be classified labels.
+On a 2d space one would put a line bewteen the given dataset.
+In 3d space the points would be seperated by a plane and in higher dimension a hyperplane would be used to describe the separation.
+
+
+
+
+most common Logistic loss function
+y label
+p probability
+
+
+
+How does it work?
+Logistic Regresion
+Why this?
+state loss function
+Why loss function
+
+
+
+
+split of training / validation data
+-> rand wl
+
+
+
+for transparency that another project using the same dataset can be found on
+Kaggle.com at [4]. However, that project is not used in or relevant to the au-
+thor’s report and as such this work should not be considered a derivative.
+
+
+
+
+
+*** SVC
+most common hinge loss
+
+
+
+
+
+
+* Problems
+More lungcancer patients than people without lungcancer - Is that a problem?
+Dataset is pretty small
+
+
+* LINKS
+Kaggle links for dataset
+https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer
+
+[fn:1] The link is: https://orgmode.org
