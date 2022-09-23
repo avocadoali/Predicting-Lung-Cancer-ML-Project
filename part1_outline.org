@@ -47,3 +47,45 @@ How to split data in training/validation
 *** TODO Code
 *** TODO Quality of writing
 *** TODO Sources no plagiarism
+
+
+
+
+
+
+* Notes
+Data prep
+    take most important features -> no overfitting
+
+    log reg -> standardise (prevent overfitting)
+
+
+Splitting data
+    - should use k-fold !!
+    - just 0.2% as optimal random split
+    - 3 parts
+        2 for training/validation
+        1 for error calculation
+
+
+Loss function
+    Logistic
+    -> log loss |
+        -
+
+    SVC
+    -> log loss |
+    -> hinge loss (-1/1)
+
+
+
+clf = LogisticRegression()
+poly = PolynomialFeatures(3)
+X_poly = poly.fit_transform(X)
+scaler = preprocessing.StandardScaler().fit(X_poly)
+X_poly = scaler.transform(X_poly) #scale the transformed features
+clf.fit(X_poly, y) #train model with X and y
+#transform X_test into polynomials, scale and make a prediction
+X_test_poly = poly.transform(X_test)
+X_test_poly = scaler.transform(X_test_poly)
+y_pred_test = clf.predict(X_test_poly) #predict!

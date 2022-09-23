@@ -15,25 +15,36 @@ In this paper, I will try to predict, if a patient with specific attributes has 
 
 ** Dataset
 
+
+* Methods
+** Problem Formulation
+In this paper, I will try to predict, if a patient  has lung cancer (an hand von)  specific attributes.
+
+** Datapoints
+Where, licsense, How much, expain datapoints
 The dataset consists of 309 entries in an execel sheet, with patients between 21 and 87 years.
 Each datapoint describes a patients with various attributes.
 The dataset is licsensed under the CCO: Public Domain and was found on Kaggle(https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer).
 For transparency reasons, this dataset is used in another project which can be found on here (https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly).
 The dataset is complete and has no missing features.
 Each datapoint is depicted with 16 different attributes(gender, age, smoking, yellow fingers, etc...).
+
 The label for this prediction will be wether or not a patient has lungcancer (yes/no), which implys that this problem is a classification problem.
-The rest of the attributes are set as features.
-All featrues except for the gender and age are represented with 1 or 2 which correspond to no/yes respectively. The Gender is represented with M or F which corresponds to male and female, respectively. The age is the actual age as a number.
+All attributes except for the gender and age are represented with 1 or 2 which correspond to no/yes respectively. The Gender is represented with M or F which corresponds to male and female, respectively. The age is the actual age as a number.
 As one may have already realized, the dataset is not all too big, as there are just 309 entries.
 
 
-
-
-* Methods
-** Datapoints
-Where, licsense, How much,
-
 ** Feature selection
+*** TODO have to take less features?
+For the features I selected all attributes apart from the lungcancer column as it is the label.
+
+To prevent overfitting we are not using all 15 features.
+
+All labels, gender, age, smoking, yellow fingers, etc, intuitively seem to be important features of wether a patient has lung cancer or not.
+
+
+
+
 
 
 ** ML model
