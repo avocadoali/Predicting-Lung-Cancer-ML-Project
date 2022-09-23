@@ -5,23 +5,10 @@
 
 #+TITLE: Detecting Lung Cancer with Machine Learning
 
-
-
-
-
 * Problem Formulation
-** Problem
 In this paper, I will try to predict, if a patient with specific attributes has lungcancer or not.
 
-** Dataset
-
-
-* Methods
-** Problem Formulation
-In this paper, I will try to predict, if a patient  has lung cancer (an hand von)  specific attributes.
-
 ** Datapoints
-Where, licsense, How much, expain datapoints
 The dataset consists of 309 entries in an execel sheet, with patients between 21 and 87 years.
 Each datapoint describes a patients with various attributes.
 The dataset is licsensed under the CCO: Public Domain and was found on Kaggle(https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer).
@@ -29,37 +16,37 @@ For transparency reasons, this dataset is used in another project which can be f
 The dataset is complete and has no missing features.
 Each datapoint is depicted with 16 different attributes(gender, age, smoking, yellow fingers, etc...).
 
+'Print table head'
+
 The label for this prediction will be wether or not a patient has lungcancer (yes/no), which implys that this problem is a classification problem.
+I chose to change the dataset for the labels from 'yes' and 'no' to -1 and 1, for easier prediction and because I will be using the SVC hinge loss funciton in the second part.
 All attributes except for the gender and age are represented with 1 or 2 which correspond to no/yes respectively. The Gender is represented with M or F which corresponds to male and female, respectively. The age is the actual age as a number.
+
 As one may have already realized, the dataset is not all too big, as there are just 309 entries.
 
 
 ** Feature selection
-*** TODO have to take less features?
-For the features I selected all attributes apart from the lungcancer column as it is the label.
-
+For the features I selected all attributes apart from the lungcancer column, as it is used for the label.
 To prevent overfitting we are not using all 15 features.
-
-All labels, gender, age, smoking, yellow fingers, etc, intuitively seem to be important features of wether a patient has lung cancer or not.
-
-
-
-
-
+All labels, gender, age, smoking, yellow fingers, etc, also intuitively seem to be important as features of wether a patient has lung cancer or not.
+After some minor testing I could validate that all 15 features seem to help the accuracy of the prediction.
+For the selected features I chose to change the datapoint from 1 and 2 to 0 and 1 for convention and for the sake of understandability.
 
 ** ML model
-*** TODO Explain why this model
-*** TODO Explain why this loss function
-- hypothesis spaces?
-- linear predictor
+Our goal is to classify wether a patient has lungcancer. This can be described as a binary classification problem.
 
-** Loss function
-*** TODO Loss function
-*** TODO Explain why this loss function
+For the first machine learning model I chose a logistic regresion, as it seemed to be a reasonable choice for a simple binary classification problem.
+Logistic regression uses a linear hypothesis space and works by setting a demlimiter between the datapoints.
+
+On a 2d space one would put a line between the given datapoints. In 3d space the points would be seperated by a plane and in higher dimension a hyperplane would be used to describe the separation.
+
+As for the loss function, I chose the logistic loss function as it is a very common and established function for logistic regresion.
+
 
 ** Model validation
-*** TODO Splitting data
-*** TODO Explain why this splitting method
+As already mention, the dataset is not very extensive, which is why I chose to use the k-fold cross validation method. This method is suitable for datasets with fewer entries.
+The algorithm works by randomly splitting up the data sets in equal parts and using one set as the validation set and the rest as training set.
+I decided to split the data in 5 parts (k=5) to achieve a training to validation ratio of 80% to 20% which is common for achieving good results.
 
 
 * Appendics
@@ -68,15 +55,22 @@ All labels, gender, age, smoking, yellow fingers, etc, intuitively seem to be im
 
 * TODOs
 
+*** DONE Explain why this model
+*** DONE Explain why this loss function - linear predictor
+*** DONE Loss function
+*** DONE Explain why this loss function
+
+
+*** DONE have to take less features?
+
+*** DONE Splitting data
+*** DONE Explain why this splitting method
+
+
 ** DONE Which method to use?
 
 ** DONE Logistic regression
 ** DONE Which loss function
-
-
-
-
-
 
 
 

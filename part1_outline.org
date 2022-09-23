@@ -71,7 +71,7 @@ Splitting data
 Loss function
     Logistic
     -> log loss |
-        -
+
 
     SVC
     -> log loss |
