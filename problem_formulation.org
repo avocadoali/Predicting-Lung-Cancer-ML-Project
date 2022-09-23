@@ -2,7 +2,8 @@
 #+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper,12pt]
-#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \usepackage{setspace} \usepackage[hyphens]{url} \usepackage{hyperref}
+
 
 #+TITLE: Predicting Lung Cancer with Machine Learning
 
@@ -14,14 +15,14 @@ In this paper, I will try to predict, if a patient with specific attributes has 
 ** Datapoints
 The dataset consists of 309 entries in an execel sheet, with patients between 21 and 87 years.
 Each datapoint describes a patients with various attributes.
-The dataset is licsensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/.
-For transparency reasons, this dataset is used in another project which can be found on /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/, but since this this work was done independantly it was by no means copied.
+The dataset is licsensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/ [1].
+For transparency reasons, this dataset is used in another project which can be found on /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [2], but since this this work was done independantly it was by no means copied.
 The dataset is complete and has no missing features. Each datapoint is depicted with 16 different attributes (Gender, Age, Smoking, Yellow Fingers, Chronic Desease etc..).
 
 The label for this prediction will be wether or not a patient has lungcancer (yes/no), which implys that this problem is a classification problem.
 I chose to change the dataset for the labels from /yes/ and /no/ to /-1/ and /1/, for easier prediction and because I will be using the SVC hinge loss funciton in the second part.
 All attributes except for the gender and age are represented with /1/ or /2/ which correspond to /no/ and /yes/ respectively. The Gender is represented with /M/ or /F/ which corresponds to male and female, respectively. The age is the actual age as a number.
-The histogramm, shows that the data is mostly balanced except for few outliers like /Fatigue/ and /Lung cancer/. Since I will be using logistic regression these outliers will not impact our results significantly.
+The histogramm, shows that the data is mostly balanced except for few outliers like /Fatigue/ and /Lung cancer/. Since I will be using logistic regression these outliers will not impact our results significantly [3][4].
 
 Additionally, I was able to find 33 duplicates which I got rid of.
 As one may have already realized, the dataset is not all too big, as there are just 276 entries.
@@ -86,9 +87,26 @@ Our goal is to classify whether a patient has lung cancer. This can be described
 For the first machine learning model, I chose logistic regression because it seemed reasonable for a simple binary classification problem.
 Logistic regression uses a linear hypothesis space and works by setting a limiter between the data points.
 In a 2D space, you would put a line between the given data points. In 3D space, the points would be separated by a plane, and in higher dimensions you would use a hyperplane to describe the separation.
-For the loss function, I chose the logistic loss function, as it is a very common and proven function for logistic regression.
+For the loss function, I chose the logistic loss function, as it is a very common and proven function for logistic regression.Some text in which I cite an author.
 
 * References
- TODO!!!
+
+
+
+ - [1] Data set from Kaggle: [[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer]]
+
+ - [2] Other Kaggle project with same data set: [[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly]]
+
+ - [3] How to handle unbalanced sets tutorial :
+   https://www.kdnuggets.com/2017/06/7-techniques-handle-imbalanced-data.html
+
+ - [4] Unbalanced data in Logistic Regression: https://stats.stackexchange.com/questions/6067/does-an-unbalanced-sample-matter-when-doing-logistic-regression
+
+ - [5] Heatmap Tutorial /Medium/ an seaborn library: https://medium.com/@szabo.bibor/how-to-\\create-a-seaborn-correlation-heatmap-in-python-834c0686b88e
+
+ - [6] Virtual Inflation Factor tutorial on Geeks for Geeks:
+    https://www.geeksforgeeks.org/detecting-multicollinearity-with-vif-python/
+
+
 
 * Code Appendics
