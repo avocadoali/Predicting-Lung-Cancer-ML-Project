@@ -8,29 +8,32 @@
 #+TITLE: Predicting Lung Cancer with Machine Learning
 * Introduction
 Lung cancer is the most common form of cancer in the whole world. Over 200.000 new cases are being diagnosed every year which makes up to 13% of of all cancer diagnosis. Almost half of the patients with lungcancer die after a year after the diagnosis.
-As for all forms of cancer, an early diagnosis increases the survival rate drasticaly. Earlier stages of lung cancer are easier to treat and can decrease the death rate by 14% to up to 20%.
+As for all forms of cancer, an early diagnosis increases the survival rate drasticaly. Earlier stages of lung cancer are easier to treat and can decrease the death rate by 14% to up to 20%[1].
 Applying machine learning appears to be reasonable use case for diagnosis of lung cancer, since it can achieve high effectivnes.
 In this paper I will try to determine whether a patient with certain characteristics has lung cancer or not.
 
 ** Report structure
-The report will continue with the section 2 "Problem Statement",
+The report will continue with the section 2 /"Problem Statement"/, where the data set presented and all the data points are clarified.
+Section 3 /"Methods"/ will explain how and why the feature selction was done and how the data sets were constructed.
+Furthermore, the two machine learning methods, logistic regression and SVC, will be discussed.
+In section 4 /"Results"/ the results are evaluated and section 5 /"Conclusion"/ will draw a final conclusion.
 
 * Problem Formulation
 
 ** Data set
 The data set consists of 309 entries in an Excel spreadsheet, with patients between 21 and 87 years old.
 Each data point describes a patient with different characteristics.
-The dataset is licensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/ [1].
-For transparency, this dataset is used in another project found on /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [2], but as this work was done independently, it has not been copied in any way.
+The dataset is licensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/ [2].
+For transparency, this dataset is used in another project found on /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [3], but as this work was done independently, it has not been copied in any way.
 The dataset is complete and has no missing features. Each data point is mapped with 16 different attributes (gender, age, smoking, yellow fingers, chronic disease, /see appendics for more/...).
 Additionally, I was also able to find 33 duplicates, which I have eliminated.
 As you may have already noticed, the dataset is not too large, now containing only 276 entries. How we dealt with this problem will be further explained in the "Data Splitting" section
 
-** Type of data
+** Label and feature clarification
 The label for this prediction is whether a patient has lung cancer or not (yes/no), which means that this problem is a classification problem.
 I decided to change the dataset for the labels from /yes/ and /no/ to /-1/ and /1/ to make the prediction easier and because I will use the SVC hinge loss function in the second part.
 All attributes except gender and age are represented with /1/ or /2/, which corresponds to /no/ and /yes/ respectively. Gender is represented with /M/ or /F/, which means male or female respectively. The age is the actual age in the form of a number.
-The histogram shows that the data is largely balanced, except for a few outliers such as /fatigue/ and /lung cancer/. Since I will be using logistic regression, these outliers will not significantly affect our results [3][4].
+The histogram shows that the data is largely balanced, except for a few outliers such as /fatigue/ and /lung cancer/. Since I will be using logistic regression, these outliers will not significantly affect our results [4][5].
 
 * Methods
 ** Feature selection and engineering
@@ -56,22 +59,35 @@ In a 2D space, you would put a line between the given data points. In 3D space, 
 *** Loss function for Logistic Regression
 For the loss function, I chose the logistic loss function, as it is a very common and proven function for logistic regression and was easy to use as it is already implemented in the used library.
 
-** SVC
-*** TODO Insert here
 
+
+
+
+** SVC
+For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps h(x) = w^T(x) , identical to that of the logistic regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
 *** Loss function for SVC
-**** TODO Insert here
+We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method % hinge loss function  ,% is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
+
 
 * Results
+From these figures, we can see that for observations that are of a margin distance of greater than or equal to 1, the hinge loss is valued at zero. While for observations of margin distance less than 1, the hinge loss value incurs a loss the increases linearly. To put simply, while the SVC bears the similarity with logistic regression in that it aims to separate both classes with a line, the difference lies in this hinge loss function, that aims to maximize the margin distance between each data point and the separating line.
+The dataset for the SVC method is also split into 5 parts to achieve the same 80% training to 20% validation ratio, for a fairer comparison between the two methods. We also decided to use a linear kernel for the SVC given that the nature of our data.
+
+To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training and validation sets, obtaining the following results shown in the charts below.
+As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training and validation accuracies for both Logistic Regression and SVC valued above 90%. It can also be observed that for both training and validation, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
+Additionally, from our results, we can clearly see how the absolute errors for SVC using hinge loss is significantly smaller than that of Logistic Regression.
+From these results, we therefore come to the decision that SVC is the better method for this prediction of lung cancer binary classification task.
 
 * Conclusion
-
+Conclusion:
+briefly summarise the report and interpret the results;
+ discuss if the obtained results seem to be optimal or if there is room for improvement
+speculate about future directions on how to further
 
 
 
 * References
-** TODO Lung cancer facts
-https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet
+- [1] Lung cancer fact sheet website:  https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet
 
 
 
