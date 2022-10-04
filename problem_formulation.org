@@ -1,4 +1,5 @@
 #+OPTIONS: toc:nil author:nil date:21.09.2022
+t
 #+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper,12pt]
@@ -34,7 +35,7 @@ After looking at the correlation heat map of the characteristic, I could not ide
 Also, all the identifiers, gender, age, smoking, yellow fingers, (...) seem intuitively important in determining whether a patient has lung cancer or not.
 After some small tests with /Variance Inflation Factor (VIF)/ I could confirm that all 15 characteristics seem to improve the accuracy of the prediction.
 
-** Data breakdown
+** Data splitting
 As mentioned earlier, the data set is not very large, so I decided to use the k-fold cross-validation method. This method is suitable for data sets with fewer entries.
 The algorithm works by randomly dividing the datasets into equal parts and using one set as the test set and the rest as the training set.
 I decided to split the data into 5 parts (k=5) to achieve an 80% to 20% ratio, which is very common.
@@ -48,9 +49,6 @@ In a 2D space, you would put a line between the given data points. In 3D space, 
 For the loss function, I chose the logistic loss function, as it is a very common and proven function for logistic regression and was easy to use as it is already implemented in the used library.
 
 * References
-
-
-
  - [1] Data set from Kaggle: [[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer]]
 
  - [2] Other Kaggle project with same data set: [[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly]]
