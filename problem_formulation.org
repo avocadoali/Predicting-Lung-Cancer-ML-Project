@@ -39,8 +39,7 @@ The histogram shows that the data is largely balanced, except for a few outliers
 
 * Methods
 ** Feature selection and engineering
-For the features, I selected all attributes except for the lung cancer column, as it is used for the label.
-For the selected features, I have changed the data points from /1/ and /2/ to /0/ and /1/ for convention purposes and ease of understanding.
+For the features, I selected all attributes except for the lung cancer column, as it is used for the label. For the selected features, I have changed the data points from /1/ and /2/ to /0/ and /1/ for convention purposes and ease of understanding.
 It is important to note here that with the exception of age, all characteristics can be represented in binary, meaning, a normalisation is not required.
 After looking at the correlation heat map of the characteristic, I could not identify any bad data sets. All data points appear to be in the range of -0.75 and 0.75, which is a common indicator of correlation.
 Also, all the identifiers, gender, age, smoking, yellow fingers, (...) seem intuitively important in determining whether a patient has lung cancer or not.
@@ -69,23 +68,38 @@ For the loss function, I chose the Logistic Loss function, as it is a very commo
 ** SVC
 For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps h(x) = w^T(x) , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
 *** Loss function for SVC
+
 We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method % hinge loss function  ,% is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
+
+
+#+ATTR_LaTeX: :height 0.3\textwidth :center
+[[./graphs/svc_1.png]]
+#+ATTR_LaTeX: :height 0.3\textwidth :center
+[[./graphs/svc_2.png]]
+
 
 From these figures, we can see that for observations that are of a margin distance of greater than or equal to 1, the hinge loss is valued at zero. While for observations of margin distance less than 1, the hinge loss value incurs a loss the increases linearly. To put simply, while the SVC bears the similarity with Logistic Regression in that it aims to separate both classes with a line, the difference lies in this hinge loss function, that aims to maximize the margin distance between each data point and the separating line.
 
 * Results
 
-To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training and validation sets, obtaining the following results shown in the charts below.
+To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test sets, obtaining the following results shown in the charts below.
 
-u
+#+ATTR_LaTeX: :height 0.3\textwidth :center
+[[./graphs/accuracy_chart.png]]
+#+ATTR_LaTeX: :height 0.3\textwidth :center
+[[./graphs/error_chart.png]]
 
-As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training and validation accuracies for both Logistic Regression and SVC valued above 90%. It can also be observed that for both training and validation, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
+As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued above 90%.
+
+* Conclusion
+
+It can also be observed that for both training and validation, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
 Additionally, from our results, we can clearly see how the absolute errors for SVC using hinge loss is significantly smaller than that of Logistic Regression.
 From these results, we therefore come to the decision that SVC is the better method for this prediction of lung cancer binary classification task.
 
 
 
-* Conclusion
+
 Conclusion:
 briefly summarise the report and interpret the results;
  discuss if the obtained results seem to be optimal or if there is room for improvement
