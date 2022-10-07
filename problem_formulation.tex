@@ -1,4 +1,4 @@
-% Created 2022-10-07 Fri 18:05
+% Created 2022-10-07 Fri 18:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -27,7 +27,7 @@
 
 \maketitle
 \section{Introduction}
-\label{sec:org95b9c50}
+\label{sec:org167e442}
 Lung cancer is the most common form of cancer in the world. Over 200.000 new cases are being diagnosed every year making up to 13\% of of all cancer diagnosis. Almost half of the patients with lungcancer die after a year after the diagnosis.
 As for all forms of cancer, an early diagnosis increases the survival rate drasticaly. Earlier stages of lung cancer are easier to treat and can decrease the death rate by 14\% to up to 20\%[1].
 Thus, applying machine learning, appears to be reasonable use case for the diagnosis of lung cancer, since it can achieve high effectivnes.
@@ -35,17 +35,17 @@ Thus, applying machine learning, appears to be reasonable use case for the diagn
 In this paper, I will try to determine whether a patient with certain characteristics has lung cancer or not.
 
 \subsection{Report structure}
-\label{sec:org74050f3}
+\label{sec:orgbbdf0e5}
 The report will continue with the section 2, \emph{``Problem Statement''}, where the data set is presented and all the data points are clarified.
 Section 3, \emph{``Methods''}, will explain how and why the feature selection was done and how the data sets were constructed.
 Furthermore, the two machine learning methods, \emph{Logistic Regression} and \emph{Support Vector Machine (SVC)}, will be discussed.
 In section 4, \emph{``Results''}, the results are evaluated and section 5, \emph{``Conclusion''}, will draw a final conclusion.
 
 \section{Problem Formulation}
-\label{sec:org0eaafe5}
+\label{sec:orgdc55014}
 
 \subsection{Data set}
-\label{sec:orgc626aa8}
+\label{sec:orgf6bd2ee}
 The data set consists of 309 entries in an Excel spreadsheet, with patients between 21 and 87 years old.
 Each data point describes a patient with different characteristics.
 The data set is licensed under the \emph{CCO: Public Domain} and was found on \emph{\href{https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer}{Kaggle}} [2].
@@ -56,16 +56,16 @@ Additionally, I was also able to find 33 duplicates, which I have eliminated.
 As you may have already noticed, the dataset is not too large, now containing only 276 entries. How this problem was dealt with will be further explained in the ``Data Splitting'' section.
 
 \subsection{Label and feature clarification}
-\label{sec:orgdde9a23}
+\label{sec:org0b1d6b3}
 The label for this prediction is whether a patient has lung cancer or not (yes/no), which means that this problem is a classification problem.
 I decided to change the dataset for the labels from \emph{yes} and \emph{no} to \emph{-1} and \emph{1} to make the prediction easier and because I will use the SVC hinge loss function in the second part.
 All attributes except gender and age are represented with \emph{1} or \emph{2}, which corresponds to \emph{no} and \emph{yes} respectively. The gender is represented with \emph{M} or \emph{F}, which means male or female respectively. The age is the actual age as an integer.
 The histogram shows that the data is largely balanced, except for a few outliers such as \emph{fatigue} and \emph{lung cancer}. Since I will be using Logistic Regression, these outliers will not significantly affect our results [4][5].
 
 \section{Methods}
-\label{sec:orgd943626}
+\label{sec:org2daeead}
 \subsection{Feature selection and engineering}
-\label{sec:org3d0b17b}
+\label{sec:org153bc52}
 For the features, I selected all attributes except for the lung cancer column, as it is used for the label. For the selected features, I have changed the data points from \emph{1} and \emph{2} to \emph{0} and \emph{1} for convention purposes and ease of understanding.
 It is important to note here that with the exception of age, all characteristics can be represented in binary, meaning, a normalisation is not required.
 After looking at the correlation heat map of the characteristic, I could not identify any bad data sets. All data points appear to be in the range of -0.75 and 0.75, which is a common indicator of correlation.
@@ -73,10 +73,10 @@ Also, all the identifiers, gender, age, smoking, yellow fingers, (\ldots{}) seem
 After some manual tests with \emph{Variance Inflation Factor (VIF)} I could confirm that all 15 characteristics seem to improve the accuracy of the prediction.
 
 \subsection{Data Splitting}
-\label{sec:orgf92fcc7}
+\label{sec:org9fbb41e}
 At first the data is split into two parts, the validation/training set and the test set. I chose the ratio to be 80 to 20 which was discussed in the lecture.
 This helps us to split the whole data into two part, so that the test set is not used in neither the training set nor the validation set.
-This was achieved by using the \emph{train\textsubscript{test}\textsubscript{split}} function of the \emph{sklearn} library.
+This was achieved by using the \(train\_test\_split\) function of the \emph{sklearn} library.
 The remaining part (80\%) of the data set will be used to train and validate the machine learning models.
 
 As mentioned earlier, the data set is not very large.
@@ -86,22 +86,22 @@ I decided to split the data into 5 parts (k=5) to achieve an 80 to 20 (training 
 Our goal is to classify whether a patient has lung cancer. This can be described as a binary classification problem.
 
 \subsection{Logistic Regression}
-\label{sec:org4df2fe1}
+\label{sec:orgce0f90d}
 For the first machine learning model, I chose Logistic Regression because it seemed reasonable for a simple binary classification problem.
 Logistic Regression uses a linear hypothesis space and works by setting a limiter between the data points.
 In a 2D space, you would put a line between the given data points. In 3D space, the points would be separated by a plane, and in higher dimensions you would use a hyperplane to describe the separation.
 
 \subsubsection{Loss function for Logistic Regression}
-\label{sec:orgd7be6f8}
+\label{sec:org3ee9c68}
 For the loss function, I chose the Logistic Loss function, as it is a very common and proven function for Logistic Regression and was easy to use as it is already implemented in the used library.
 
 \subsection{SVC}
-\label{sec:org70cc6db}
-For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps h(x) = w\textsuperscript{T}(x) , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
+\label{sec:org65de79a}
+For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps \(h(x) = w^{T(x)}\) , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
 \subsubsection{Loss function for SVC}
-\label{sec:orgd815911}
+\label{sec:org57b27dc}
 
-We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method \% hinge loss function  ,\% is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
+We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method hinge loss function, is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
 
 
 \includegraphics[height=0.3\textwidth]{./graphs/svc_1.png}
@@ -111,9 +111,9 @@ We also decided on using hinge loss to calculate the loss of our SVC method. The
 From these figures, we can see that for observations that are of a margin distance of greater than or equal to 1, the hinge loss is valued at zero. While for observations of margin distance less than 1, the hinge loss value incurs a loss the increases linearly. To put simply, while the SVC bears the similarity with Logistic Regression in that it aims to separate both classes with a line, the difference lies in this hinge loss function, that aims to maximize the margin distance between each data point and the separating line.
 
 \section{Results}
-\label{sec:orgcb52c55}
+\label{sec:org3d24ab1}
 
-To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test sets, obtaining the following results shown in the charts below.
+To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test set, obtaining the following results shown in the charts below.
 
 \includegraphics[height=0.3\textwidth]{./graphs/accuracy_chart.png}
 \includegraphics[height=0.3\textwidth]{./graphs/error_chart.png}
@@ -121,7 +121,7 @@ To evaluate and compare the two models, we have calculated the errors and the ac
 As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued above 90\%.
 
 \section{Conclusion}
-\label{sec:org7b5c9d5}
+\label{sec:org53c10ba}
 
 It can also be observed that for both training and validation, SVC performed better than the Logistic Regression model, with a 93.5\% training and 91.7\% validation accuracy, compared to the 92.5\% training and 90.9\% validation accuracy of the latter.
 Additionally, from our results, we can clearly see how the absolute errors for SVC using hinge loss is significantly smaller than that of Logistic Regression.
@@ -138,7 +138,7 @@ speculate about future directions on how to further
 
 
 \section{References}
-\label{sec:orgb122467}
+\label{sec:org2247390}
 \begin{itemize}
 \item\relax [1] Lung cancer fact sheet website:  \url{https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet}
 \end{itemize}
@@ -163,5 +163,17 @@ speculate about future directions on how to further
 
 
 \section{Code Appendics}
-\label{sec:org0f1c8a3}
+\label{sec:org6df2ef5}
+\section{{\bfseries\sffamily TODO} LOG loss funciton}
+\label{sec:org52c445e}
+\section{{\bfseries\sffamily TODO} Conclusion}
+\label{sec:org0dd9ae8}
+\section{{\bfseries\sffamily TODO} Add appenidcs}
+\label{sec:org49a059a}
+\section{{\bfseries\sffamily TODO} }
+\label{sec:org45c1521}
+\section{{\bfseries\sffamily TODO} }
+\label{sec:orgbf3a721}
+\section{{\bfseries\sffamily TODO} }
+\label{sec:org4a04629}
 \end{document}

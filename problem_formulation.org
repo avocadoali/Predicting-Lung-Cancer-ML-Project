@@ -48,7 +48,7 @@ After some manual tests with /Variance Inflation Factor (VIF)/ I could confirm t
 ** Data Splitting
 At first the data is split into two parts, the validation/training set and the test set. I chose the ratio to be 80 to 20 which was discussed in the lecture.
 This helps us to split the whole data into two part, so that the test set is not used in neither the training set nor the validation set.
-This was achieved by using the /train_test_split/ function of the /sklearn/ library.
+This was achieved by using the train\_test\_split function of the /sklearn/ library.
 The remaining part (80%) of the data set will be used to train and validate the machine learning models.
 
 As mentioned earlier, the data set is not very large.
@@ -66,10 +66,10 @@ In a 2D space, you would put a line between the given data points. In 3D space, 
 For the loss function, I chose the Logistic Loss function, as it is a very common and proven function for Logistic Regression and was easy to use as it is already implemented in the used library.
 
 ** SVC
-For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps h(x) = w^T(x) , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
+For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps $h(x) = w^{T(x)}$ , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
 *** Loss function for SVC
 
-We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method % hinge loss function  ,% is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
+We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method hinge loss function, is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
 
 
 #+ATTR_LaTeX: :height 0.3\textwidth :center
@@ -82,7 +82,7 @@ From these figures, we can see that for observations that are of a margin distan
 
 * Results
 
-To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test sets, obtaining the following results shown in the charts below.
+To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test set, obtaining the following results shown in the charts below.
 
 #+ATTR_LaTeX: :height 0.3\textwidth :center
 [[./graphs/accuracy_chart.png]]
