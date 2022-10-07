@@ -7,16 +7,16 @@
 
 #+TITLE: Predicting Lung Cancer with Machine Learning
 * Introduction
-Lung cancer is the most common form of cancer in the whole world. Over 200.000 new cases are being diagnosed every year which makes up to 13% of of all cancer diagnosis. Almost half of the patients with lungcancer die after a year after the diagnosis.
+Lung cancer is the most common form of cancer in the world. Over 200.000 new cases are being diagnosed every year making up to 13% of of all cancer diagnosis. Almost half of the patients with lungcancer die after a year after the diagnosis.
 As for all forms of cancer, an early diagnosis increases the survival rate drasticaly. Earlier stages of lung cancer are easier to treat and can decrease the death rate by 14% to up to 20%[1].
-Applying machine learning appears to be reasonable use case for diagnosis of lung cancer, since it can achieve high effectivnes.
-In this paper I will try to determine whether a patient with certain characteristics has lung cancer or not.
+Thus, applying machine learning, appears to be reasonable use case for the diagnosis of lung cancer, since it can achieve high effectivnes.
+In this paper, I will try to determine whether a patient with certain characteristics has lung cancer or not.
 
 ** Report structure
-The report will continue with the section 2 /"Problem Statement"/, where the data set presented and all the data points are clarified.
-Section 3 /"Methods"/ will explain how and why the feature selction was done and how the data sets were constructed.
+The report will continue with the section 2, /"Problem Statement"/, where the data set is presented and all the data points are clarified.
+Section 3, /"Methods"/, will explain how and why the feature selection was done and how the data sets were constructed.
 Furthermore, the two machine learning methods, logistic regression and SVC, will be discussed.
-In section 4 /"Results"/ the results are evaluated and section 5 /"Conclusion"/ will draw a final conclusion.
+In section 4, /"Results"/, the results are evaluated and section 5, /"Conclusion"/, will draw a final conclusion.
 
 * Problem Formulation
 
@@ -24,15 +24,15 @@ In section 4 /"Results"/ the results are evaluated and section 5 /"Conclusion"/ 
 The data set consists of 309 entries in an Excel spreadsheet, with patients between 21 and 87 years old.
 Each data point describes a patient with different characteristics.
 The dataset is licensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/ [2].
-For transparency, this dataset is used in another project found on /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [3], but as this work was done independently, it has not been copied in any way.
+For transparency, this dataset is used in another project found /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [3], but as this work was done independently, it has not been copied in any way.
 The dataset is complete and has no missing features. Each data point is mapped with 16 different attributes (gender, age, smoking, yellow fingers, chronic disease, /see appendics for more/...).
 Additionally, I was also able to find 33 duplicates, which I have eliminated.
-As you may have already noticed, the dataset is not too large, now containing only 276 entries. How we dealt with this problem will be further explained in the "Data Splitting" section
+As you may have already noticed, the dataset is not too large, now containing only 276 entries. How this problem was dealt with will be further explained in the "Data Splitting" section.
 
 ** Label and feature clarification
 The label for this prediction is whether a patient has lung cancer or not (yes/no), which means that this problem is a classification problem.
 I decided to change the dataset for the labels from /yes/ and /no/ to /-1/ and /1/ to make the prediction easier and because I will use the SVC hinge loss function in the second part.
-All attributes except gender and age are represented with /1/ or /2/, which corresponds to /no/ and /yes/ respectively. Gender is represented with /M/ or /F/, which means male or female respectively. The age is the actual age in the form of a number.
+All attributes except gender and age are represented with /1/ or /2/, which corresponds to /no/ and /yes/ respectively. The gender is represented with /M/ or /F/, which means male or female respectively. The age is the actual age in the form of a number.
 The histogram shows that the data is largely balanced, except for a few outliers such as /fatigue/ and /lung cancer/. Since I will be using logistic regression, these outliers will not significantly affect our results [4][5].
 
 * Methods
