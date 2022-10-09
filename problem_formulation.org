@@ -7,17 +7,18 @@
 
 #+TITLE: Predicting Lung Cancer with Machine Learning
 * Introduction
-Lung cancer is the most common form of cancer in the world. Over 200.000 new cases are being diagnosed every year making up to 13% of of all cancer diagnosis. Almost half of the patients with lungcancer die after a year after the diagnosis.
-As for all forms of cancer, an early diagnosis increases the survival rate drasticaly. Earlier stages of lung cancer are easier to treat and can decrease the death rate by 14% to up to 20%[1].
-Thus, applying machine learning, appears to be reasonable use case for the diagnosis of lung cancer, since it can achieve high effectivnes.
+Lung cancer is the most common form of cancer worldwide. Over 200,000 new cases are diagnosed each year, accounting for 13% of all cancer diagnoses. Almost half of patients with lung cancer die within a year of diagnosis.
+As with all cancers, early diagnosis dramatically increases survival rates. Earlier stages of lung cancer are easier to treat and can reduce mortality rates by 14% to 20%[1].
+Thus, the application of machine learning seems to be a reasonable use case for the diagnosis of lung cancer as it can achieve high effectiveness.
 
-In this paper, I will try to determine whether a patient with certain characteristics has lung cancer or not.
+In this paper, I will try to determine whether a patient with certain features has lung cancer or not.
+
 
 ** Report structure
-The report will continue with the section 2, /"Problem Statement"/, where the data set is presented and all the data points are clarified.
-Section 3, /"Methods"/, will explain how and why the feature selection was done and how the data sets were constructed.
-Furthermore, the two machine learning methods, /Logistic Regression/ and /Support Vector Machine (SVM)/, will be discussed.
-In section 4, /"Results"/, the results are evaluated and section 5, /"Conclusion"/, will draw a final conclusion.
+The report continues with section 2, /"Problem statement"/, where the data set is introduced and all data points are clarified.
+Section 3, /"Methods"/, explains how and why the feature selection was made and how the datasets were constructed.
+It also discusses the two machine learning methods, /Logistic Regression/ and /Support Vector Machine (SVM)/.
+In section 4, /Results/, the results are analysed and in section 5, /Conclusion/, a final conclusion is drawn.
 
 * Problem Formulation
 
@@ -27,9 +28,10 @@ Each data point describes a patient with different characteristics.
 The data set is licensed under the /CCO: Public Domain/ and was found on /[[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer][Kaggle]]/ [2].
 For transparency, this dataset is used in another project found /[[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly][here]]/ [3], but as this work was done independently, it has not been copied in any way.
 
-The data set is complete and has no missing features. Each data point is mapped with 16 different attributes (gender, age, smoking, yellow fingers, chronic disease, /see appendics for more/...).
-Additionally, I was also able to find 33 duplicates, which I have eliminated.
-As you may have already noticed, the dataset is not too large, now containing only 276 entries. How this problem was dealt with will be further explained in the "Data Splitting" section.
+The dataset is complete and has no missing features. Each data point has 16 different attributes associated with it (gender, age, smoking, yellow fingers, chronic diseases, /see appendix for more/...).
+I was also able to find 33 duplicates, which I eliminated.
+As you may have noticed, the dataset is not too large and contains only 276 entries. How this problem was fixed is explained in more detail in the section "Splitting the data".
+
 
 ** Label and feature clarification
 The label for this prediction is whether a patient has lung cancer or not (yes/no), which means that this problem is a classification problem.
@@ -47,12 +49,15 @@ After some manual tests with /Variance Inflation Factor (VIF)/ I could confirm t
 
 ** Data Splitting
 At first the data is split into two parts, the validation/training set and the test set. I chose the ratio to be 80 to 20 which was discussed in the lecture.
-This helps us to split the whole data into two part, so that the test set is not used in neither the training set nor the validation set.
-This was achieved by using the $train\_test\_split$ function of the /sklearn/ library.
-The remaining part (80%) of the data set will be used to train and validate the machine learning models.
 
-As mentioned earlier, the data set is not very large.
-I decided to use the k-fold cross-validation method. This method is suitable for data sets with fewer entries, to split it up into training and validation sets.
+This helps us to split the whole data into two parts so that the test set is not used in either the training set or the validation set.
+
+This was achieved by using the $train\_test\_split$ function of the /sklearn/ library.
+The remaining part (80%) of the dataset will be used to train and validate the machine learning models.
+
+As mentioned earlier, the dataset is not very large.
+I decided to use the k-fold cross-validation method.
+This method is suitable for data sets with fewer entries, to split it up into training and validation sets.
 The algorithm works by randomly dividing the datasets into equal parts and using one set as the test set and the rest as the training set.
 I decided to split the data into 5 parts (k=5) to achieve an 80 to 20 (training to validation) ratio, which is very common.
 Our goal is to classify whether a patient has lung cancer. This can be described as a binary classification problem.
@@ -106,18 +111,18 @@ From these results, we therefore come to the decision that SVC is the better met
 
 * Conclusion
 
-In conclusion, we were able to predict, with an accuracy of 93.5%, wether a patient with specific symptoms has lungcancer or not.
+In conclusion, we were able to predict, with an accuracy of 93.5%, wether a patient with certain symptoms has lungcancer or not.
 A dataset with 16 different parameters was used to make out the prediction.
 The data was split into training, validation and a testset, with usage of the k-fold method to increase accuarcy, since the dataset was not too big with 276 entries.
-The accuracy was determined via the average of all the folds.
-After comparing Logistic Regression with SVM we found out that SVM is more suitable.
-
+The accuracy was determined via the average of all the foldings.
+After comparing Logistic Regression with SVM, we found out that SVM is more suitable.
 It can be observed that for all the datasets, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
 
-Still 93.5% accuracy score might not be enough for reliably detecting lung cancer.
-Even having few wrong diagnosis wether a patient may not have lung cancer can be fatal. Thus, the prediction of lung cancer has to be further improved.
-Testing different machine learning models may give more insight on which works best for this classification problem.
-Additionally, a bigger dataset would probably improve the accuracy of the prediction further.
+Nevertheless, an accuracy of 93.5 % may not be sufficient to reliably detect lung cancer.
+Even a few misdiagnoses of whether a patient may not have lung cancer can be fatal. Therefore, the prediction of lung cancer needs to be further improved.
+Testing different machine learning models could provide more insight into which model is best suited for this classification problem.
+In addition, a larger data set would likely further improve the accuracy of the prediction.
+
 
 * References
 - [1] Lung cancer fact sheet website:  https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet
