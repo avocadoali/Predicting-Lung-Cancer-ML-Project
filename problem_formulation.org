@@ -49,12 +49,9 @@ After some manual tests with /Variance Inflation Factor (VIF)/ I could confirm t
 
 ** Data Splitting
 At first the data is split into two parts, the validation/training set and the test set. I chose the ratio to be 80 to 20 which was discussed in the lecture.
-
 This helps us to split the whole data into two parts so that the test set is not used in either the training set or the validation set.
-
 This was achieved by using the $train\_test\_split$ function of the /sklearn/ library.
 The remaining part (80%) of the dataset will be used to train and validate the machine learning models.
-
 As mentioned earlier, the dataset is not very large.
 I decided to use the k-fold cross-validation method.
 This method is suitable for data sets with fewer entries, to split it up into training and validation sets.
