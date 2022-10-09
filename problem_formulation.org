@@ -16,7 +16,7 @@ In this paper, I will try to determine whether a patient with certain characteri
 ** Report structure
 The report will continue with the section 2, /"Problem Statement"/, where the data set is presented and all the data points are clarified.
 Section 3, /"Methods"/, will explain how and why the feature selection was done and how the data sets were constructed.
-Furthermore, the two machine learning methods, /Logistic Regression/ and /Support Vector Machine (SVC)/, will be discussed.
+Furthermore, the two machine learning methods, /Logistic Regression/ and /Support Vector Machine (SVM)/, will be discussed.
 In section 4, /"Results"/, the results are evaluated and section 5, /"Conclusion"/, will draw a final conclusion.
 
 * Problem Formulation
@@ -48,7 +48,7 @@ After some manual tests with /Variance Inflation Factor (VIF)/ I could confirm t
 ** Data Splitting
 At first the data is split into two parts, the validation/training set and the test set. I chose the ratio to be 80 to 20 which was discussed in the lecture.
 This helps us to split the whole data into two part, so that the test set is not used in neither the training set nor the validation set.
-This was achieved by using the train\_test\_split function of the /sklearn/ library.
+This was achieved by using the $train\_test\_split$ function of the /sklearn/ library.
 The remaining part (80%) of the data set will be used to train and validate the machine learning models.
 
 As mentioned earlier, the data set is not very large.
@@ -63,9 +63,9 @@ Logistic Regression uses a linear hypothesis space and works by setting a limite
 In a 2D space, you would put a line between the given data points. In 3D space, the points would be separated by a plane, and in higher dimensions you would use a hyperplane to describe the separation.
 
 *** Loss function for Logistic Regression
-For the loss function, I chose the Logistic Loss function, as it is a very common and proven function for Logistic Regression and was easy to use as it is already implemented in the used library.
+For the loss function, I chose the Logistic Loss function, as it is the common and proven function for Logistic Regression. Also it was easy to use as it is already implemented in the used library.
 
-** SVC
+** Support Vector Machine (SVM)
 For the second machine learning model, we chose to use the Support Vector Machine (SVM) classifier class, Support Vector Classification (SVC), for this simple binary classification task. For SVC, it also uses a linear hypothesis space that maps $h(x) = w^{T(x)}$ , identical to that of the Logistic Regression method used previously. The decision to opt for this method was so that we can compare the classification methods and evaluate which has better performance. We did not choose to make use of LinearSVC or SGDClassifier over the basic SVC due to the dataset being not too large.
 *** Loss function for SVC
 
@@ -91,40 +91,58 @@ To evaluate and compare the two models, we have calculated the errors and the ac
 
 As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued above 90%.
 
-* Conclusion
-
-It can also be observed that for both training and validation, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
 Additionally, from our results, we can clearly see how the absolute errors for SVC using hinge loss is significantly smaller than that of Logistic Regression.
 From these results, we therefore come to the decision that SVC is the better method for this prediction of lung cancer binary classification task.
 
+* Conclusion
+
+In conclusion, we were able to predict, with a accuracy of 93.5%, wether a patient with specific symptoms has lungcancer or not.
+A dataset with 16 different parameters was used to make out the prediction.
+The data was split into training, validation and a testset, with usage of the k-fold method to increase accuarcy, since the dataset was not too big with 276 entries.
+The accuracy was determined via the average of all the folds.
+After comparing Logistic Regression with SVM we found out that SVM is more suitable.
+
+It can be observed that for all the datasets, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
+
+Still 93.5% accuracy score might not be enough for reliably detect lung cancer.
+Even having few wrong diagnosis wether a patient may not have lung cancer can be fatal. Thus, the prediction of lung cancer has to be further improved.
+
+Testing different machine learning models may give more insight on which works best for this classification problem.
+Additionally, a bigger dataset would probably improve the accuracy of the prediction further.
 
 
 
-Conclusion:
-briefly summarise the report and interpret the results;
- discuss if the obtained results seem to be optimal or if there is room for improvement
-speculate about future directions on how to further
+
+
+
+
+
+
+
+
+
+
 
 
 
 * References
 - [1] Lung cancer fact sheet website:  https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet
 
+- [2] Data set from Kaggle: [[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer]]
 
-
-
-
-
- - [1] Data set from Kaggle: [[https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer]]
-
- - [2] Other Kaggle project with same data set: [[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly]]
-
- - [3] How to handle unbalanced sets tutorial :
+- [3] Other Kaggle project with same data set: [[https://www.kaggle.com/code/gaganmaahi224/lung-cancer-5ml-models-full-analysis-plotly]]
+- [4] How to handle unbalanced sets tutorial :
    https://www.kdnuggets.com/2017/06/7-techniques-handle-imbalanced-data.html
 
- - [4] Unbalanced data in Logistic Regression: https://stats.stackexchange.com/questions/6067/does-an-unbalanced-sample-matter-when-doing-logistic-regression
+- [5] Unbalanced data in Logistic Regression: https://stats.stackexchange.com/questions/6067/does-an-unbalanced-sample-matter-when-doing-logistic-regression
 
- - [5] Heatmap Tutorial /Medium/ an seaborn library: https://medium.com/@szabo.bibor/how-to-\\create-a-seaborn-correlation-heatmap-in-python-834c0686b88e
+- [6] Heatmap Tutorial /Medium/ an seaborn library: https://medium.com/@szabo.bibor/how-to-\\create-a-seaborn-correlation-heatmap-in-python-834c0686b88e
 
 
 * Code Appendics
+* DONE LOG loss funciton
+* TODO Conclusion
+* TODO  Add appenidcs
+* TODO More detailed graph/table
+* TODO
+* TODO
