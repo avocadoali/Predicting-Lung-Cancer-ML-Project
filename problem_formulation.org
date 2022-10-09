@@ -72,6 +72,7 @@ For the second machine learning model, we chose to use the Support Vector Machin
 We also decided on using hinge loss to calculate the loss of our SVC method. The motivation for making use of hinge loss as the function for this method hinge loss function, is mainly because it is widely known as the loss function tailored for SVM and also is easily accessible with sklearn.metrics. Furthermore, it also makes sense to use this loss function for this binary classification task. A visualization and representation of the hinge loss function is shown in the following figures.
 
 
+
 #+ATTR_LaTeX: :height 0.3\textwidth :center
 [[./graphs/svc_1.png]]
 #+ATTR_LaTeX: :height 0.3\textwidth :center
@@ -83,11 +84,20 @@ From these figures, we can see that for observations that are of a margin distan
 * Results
 
 To evaluate and compare the two models, we have calculated the errors and the accuracy scores for each training, validation and test set, obtaining the following results shown in the charts below.
-
+|   |
 #+ATTR_LaTeX: :height 0.3\textwidth :center
 [[./graphs/accuracy_chart.png]]
 #+ATTR_LaTeX: :height 0.3\textwidth :center
 [[./graphs/error_chart.png]]
+|   |
+#+ATTR_LaTeX: :height 0.15\textwidth :center
+[[./graphs/accuracy_table.png]]
+#+ATTR_LaTeX: :height 0.15\textwidth :center
+[[./graphs/error_table.png]]
+
+|   |
+
+
 
 As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued above 90%.
 
@@ -96,7 +106,7 @@ From these results, we therefore come to the decision that SVC is the better met
 
 * Conclusion
 
-In conclusion, we were able to predict, with a accuracy of 93.5%, wether a patient with specific symptoms has lungcancer or not.
+In conclusion, we were able to predict, with an accuracy of 93.5%, wether a patient with specific symptoms has lungcancer or not.
 A dataset with 16 different parameters was used to make out the prediction.
 The data was split into training, validation and a testset, with usage of the k-fold method to increase accuarcy, since the dataset was not too big with 276 entries.
 The accuracy was determined via the average of all the folds.
@@ -104,26 +114,10 @@ After comparing Logistic Regression with SVM we found out that SVM is more suita
 
 It can be observed that for all the datasets, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
 
-Still 93.5% accuracy score might not be enough for reliably detect lung cancer.
+Still 93.5% accuracy score might not be enough for reliably detecting lung cancer.
 Even having few wrong diagnosis wether a patient may not have lung cancer can be fatal. Thus, the prediction of lung cancer has to be further improved.
-
 Testing different machine learning models may give more insight on which works best for this classification problem.
 Additionally, a bigger dataset would probably improve the accuracy of the prediction further.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 * References
 - [1] Lung cancer fact sheet website:  https://www.lung.org/lung-health-diseases/lung-disease-lookup/lung-cancer/resource-library/lung-cancer-fact-sheet
@@ -140,9 +134,3 @@ Additionally, a bigger dataset would probably improve the accuracy of the predic
 
 
 * Code Appendics
-* DONE LOG loss funciton
-* TODO Conclusion
-* TODO  Add appenidcs
-* TODO More detailed graph/table
-* TODO
-* TODO
