@@ -104,21 +104,21 @@ To evaluate and compare the two models, we have calculated the errors and the ac
 
 
 
-As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued above 90%.
-
+As we can see from the charts and table above, both methods performed well in this binary classification to predict persons with lung cancer, with the training, validation and test accuracies for both Logistic Regression and SVC valued around 90%.
 Additionally, from our results, we can clearly see how the absolute errors for SVC using hinge loss is significantly smaller than that of Logistic Regression.
 From these results, we therefore come to the decision that SVC is the better method for this prediction of lung cancer binary classification task.
 
 * Conclusion
 
-In conclusion, we were able to predict, with an accuracy of 93.5%, wether a patient with certain symptoms has lungcancer or not.
+In conclusion, we were able to predict, with an accuracy of 87.9%, for the test set, wether a patient with certain symptoms has lungcancer or not.
+
 A dataset with 16 different parameters was used to make out the prediction.
 The data was split into training, validation and a testset, with usage of the k-fold method to increase accuarcy, since the dataset was not too big with 276 entries.
 The accuracy was determined via the average of all the foldings.
 After comparing Logistic Regression with SVM, we found out that SVM is more suitable.
-It can be observed that for all the datasets, SVC performed better than the Logistic Regression model, with a 93.5% training and 91.7% validation accuracy, compared to the 92.5% training and 90.9% validation accuracy of the latter.
+It can be observed that for all the datasets, SVC performed better than the Logistic Regression model, with a 94.7% training, 92.3% validation and 87.9% test accuracy, compared to the 93.1% training, 91.4% validation and 97.5% accuracy of the latter.
 
-Nevertheless, an accuracy of 93.5 % may not be sufficient to reliably detect lung cancer.
+Nevertheless, an accuracy of 87.9% may not be sufficient to reliably detect lung cancer.
 Even a few misdiagnoses of whether a patient may not have lung cancer can be fatal. Therefore, the prediction of lung cancer needs to be further improved.
 Testing different machine learning models could provide more insight into which model is best suited for this classification problem.
 In addition, a larger data set would likely further improve the accuracy of the prediction.
