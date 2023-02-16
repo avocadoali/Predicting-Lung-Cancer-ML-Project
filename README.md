@@ -1,5 +1,3 @@
-# Predicting-Lung-Cancer-ML-Project
+## Predicting Lung Cancer ML Project
 
-- University project for the introductory machine learning course at Aalto University. 
-
-- Using Logistic Regression and Support Vector Machine to predict whether a patient with specific symptoms has lung cancer or not.
+University project for the introductory machine learning course at Aalto University. Read the report [here](https://github.com/avocadoali/Predicting-Lung-Cancer-ML-Project/blob/main/Predicting_Lung_Cancer_with_Machine_Learning.pdf).
